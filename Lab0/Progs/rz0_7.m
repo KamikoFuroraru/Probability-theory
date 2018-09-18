@@ -1,0 +1,34 @@
+num = [1 67.56];
+den = [1 2.65 3.09 7.04 34.05];
+denRoots = roots(den);
+fprintf('root: %s\n', denRoots);
+fprintf('\n');
+freq = abs(imag(denRoots));
+maxFreq = max(freq);
+fprintf('freq: %s\n', freq);
+fprintf('\n');
+fprintf('maxFreq: %s\n', maxFreq);
+fprintf('\n');
+freqRange = 0 : 0.097 : 5*maxFreq;
+CPF = zeros(1, 100);
+p = zeros(1, 100);
+absCPF = zeros(1, 100);
+realCPF = zeros(1, 100);
+imagCPF = zeros(1, 100);
+for k = 1 : 100
+    p(1, k) = 1i*freqRange(k);
+    polyNum = p.^3 + 67.56;
+    polyDen = p.^4 + 2.65*p.^3 + 3.09*p.^2 + 7.04*p +34.05;
+    CPF(1, k) = polyNum/polyDen;
+    absCPF(1, k) = abs(polyNum/polyDen);
+    realCPF(1, k) = real(polyNum/polyDen);
+    imagCPF(1, k) = imag(polyNum/polyDen);
+end
+fprintf('absCPF: %s\n', absCPF);
+fprintf('\n');
+fprintf('p: %e\n', p);
+fprintf('\n');
+fprintf('real: %s\n', realCPF);
+fprintf('\n');
+fprintf('imag: %s\n', imagCPF);
+fprintf('\n');

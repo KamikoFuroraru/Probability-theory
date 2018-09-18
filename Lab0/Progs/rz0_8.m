@@ -1,0 +1,15 @@
+data = randi(5, 5);
+polynom = poly(data);
+fprintf('%s\n', data);
+fprintf('%s\n', det(data));
+fprintf('%s\n', inv(data));
+fprintf('%s\n', poly(data));
+fprintf('%s\n', roots(polynom));
+fprintf('%s\n', eig(data));
+fprintf('%s\n', lu(data));
+fprintf('%s\n', qr(data));
+fprintf('%s\n', svd(data));
+fprintf('%s\n', trace(data));
+fprintf('%s\n', cond(data));
+fprintf('%s\n', expm(data));
+fprintf('%s\n', logm(data));
